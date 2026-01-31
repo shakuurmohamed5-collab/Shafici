@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFID-Based Home Security Door Lock System | Shakur</title>
+    <meta name="description" content="Academic Project: An RFID-based access control system using Arduino Uno, LCD display, and RC522 reader for secure home authentication.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="project-details-page">
+    <header>
+        <nav id="navbar" class="container">
+            <div class="logo">
+                <a href="index.html"><span class="accent-text">&lt;</span>Shakur<span class="accent-text">/&gt;</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#certificates">Certificates</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Project Hero Section -->
+        <section class="project-hero">
+            <div class="container">
+                <a href="index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+                <h1>RFID-Based Home Security Door Lock System</h1>
+                <p class="project-hero-subtitle">Academic Practical Project • Embedded Systems / Security Systems</p>
+            </div>
+        </section>
+
+        <!-- Project Details Content -->
+        <section class="project-content section">
+            <div class="container">
+                <div class="project-details-grid">
+                    <!-- Main Content -->
+                    <div class="project-main">
+                        <!-- Overview -->
+                        <div class="detail-section">
+                            <h2><i class="fas fa-info-circle"></i> Overview</h2>
+                            <p>Design and implementation of an RFID-based home security door lock system using Arduino Uno and an LCD display. The system provides secure access control by allowing only authorized RFID cards to unlock the door, while displaying real-time system status on an LCD screen.</p>
+                        </div>
+
+                        <!-- Problem Statement -->
+                        <div class="detail-section">
+                            <h2><i class="fas fa-exclamation-triangle"></i> Problem Statement</h2>
+                            <p>Conventional door locks rely on physical keys, which can be lost, duplicated, or stolen. This project introduces an electronic access control solution using RFID authentication and visual feedback through an LCD interface.</p>
+                        </div>
+
+                        <!-- System Description -->
+                        <div class="detail-section">
+                            <h2><i class="fas fa-cogs"></i> System Description</h2>
+                            <p>The system uses an RFID reader to scan RFID cards. The Arduino Uno processes the card UID and compares it with a list of authorized IDs. If the card is valid, the door lock mechanism is activated and the system status is displayed on the LCD screen. Unauthorized access attempts are rejected and clearly indicated on the display.</p>
+                        </div>
+
+                        <!-- How It Works -->
+                        <div class="detail-section">
+                            <h2><i class="fas fa-microchip"></i> How It Works</h2>
+                            <ul class="detail-list">
+                                <li>User places an RFID card near the reader</li>
+                                <li>Arduino reads the card UID</li>
+                                <li>UID is verified against stored authorized IDs</li>
+                                <li>If authorized, the door lock is unlocked</li>
+                                <li>LCD displays messages such as <em>“Access Granted”</em> or <em>“Access Denied”</em></li>
+                            </ul>
+                        </div>
+
+                        <!-- My Role -->
+                        <div class="detail-section">
+                            <h2><i class="fas fa-user-gear"></i> My Role</h2>
+                            <ul class="detail-list">
+                                <li>Designed the system architecture and wiring</li>
+                                <li>Programmed the Arduino Uno logic</li>
+                                <li>Integrated RFID reader, LCD display, and door lock mechanism</li>
+                                <li>Tested system functionality and reliability</li>
+                            </ul>
+                        </div>
+
+                        <!-- Media Section -->
+                        <div class="detail-section">
+                            <h2><i class="fas fa-photo-video"></i> Media Section</h2>
+                            <div class="evidence-grid">
+                                <div class="evidence-item">
+                                    <img src="images/projects/project4/project.jpeg" alt="full">
+                                    <p>Full view of the complete system</p>
+                                </div>
+                                <div class="evidence-item">
+                                    <img src="images/projects/project4/circuit.png" alt="circuit">
+                                    <p>circuit diagram</p>
+                                </div>
+                                <div class="evidence-item">
+                                    <img src="images/projects/project4/system.png" alt="system">
+                                    <p>Door lock mechanism</p>
+                                </div>
+                            </div>
+                        </div>
+
+             
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="project-sidebar">
+                        <!-- Key Components -->
+                        <div class="sidebar-card">
+                            <h3><i class="fas fa-toolbox"></i> Key Components</h3>
+                            <div class="tech-tags">
+                                <span class="badge">Arduino Uno</span>
+                                <span class="badge">RFID Reader (RC522)</span>
+                                <span class="badge">RFID Cards/Tags</span>
+                                <span class="badge">LCD Display (16×2)</span>
+                                <span class="badge">Servo Motor / Lock</span>
+                                <span class="badge">Power Supply</span>
+                                <span class="badge">Breadboard & Wires</span>
+                            </div>
+                        </div>
+
+                        <!-- Skills Demonstrated -->
+                        <div class="sidebar-card">
+                            <h3><i class="fas fa-award"></i> Skills Demonstrated</h3>
+                            <ul class="detail-list">
+                                <li>Arduino programming</li>
+                                <li>RFID authentication</li>
+                                <li>LCD interfacing</li>
+                                <li>Embedded system integration</li>
+                                <li>Access control concepts</li>
+                            </ul>
+                        </div>
+
+                        <!-- Applications -->
+                        <div class="sidebar-card">
+                            <h3><i class="fas fa-lightbulb"></i> Applications</h3>
+                            <ul class="detail-list">
+                                <li>Home security systems</li>
+                                <li>Office access control</li>
+                                <li>Smart door locks</li>
+                                <li>Restricted-area entry</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Shakur. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/shakuurmohamed5-collab" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/shafici-m-yusuf-b75832329" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:shaficimoham@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

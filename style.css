@@ -389,27 +389,38 @@ nav {
     gap: 1.5rem;
 }
 
-.cert-placeholder {
-    height: 220px;
-    border: 2px dashed var(--glass-border);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+.cert-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
     transition: var(--transition);
 }
 
-.cert-placeholder:hover {
+.cert-card:hover {
     border-color: var(--primary-color);
-    background: rgba(0, 255, 65, 0.02);
+    transform: translateY(-5px);
 }
 
-.cert-placeholder i {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-muted);
+.cert-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.cert-info {
+    padding: 1rem;
+    background: var(--bg-darker);
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+}
+
+.cert-info p {
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
 }
 
 /* --- Contact Section --- */
@@ -694,10 +705,10 @@ footer {
 
 /* Evidence Grid */
 .evidence-grid {
-    display: block;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
 }
 
 .evidence-item {
@@ -714,7 +725,7 @@ footer {
 
 .evidence-item img {
     width: 100%;
-    height: 150;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
@@ -805,4 +816,54 @@ footer {
     .evidence-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Video Section Styles */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.video-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.video-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container video,
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-info {
+    padding: 1rem;
+    text-align: center;
+    background: var(--bg-darker);
+}
+
+.video-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
 }
