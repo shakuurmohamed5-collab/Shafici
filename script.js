@@ -92,27 +92,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.style.color = '';
             }, 1500);
         });
-    // --- Certificate Toggle ---
-    const showMoreBtn = document.getElementById('show-more-certs');
-    const hiddenCerts = document.querySelectorAll('.cert-hidden');
-    
-    if (showMoreBtn) {
-        showMoreBtn.addEventListener('click', () => {
-            const isHidden = hiddenCerts[0].style.display === 'none' || hiddenCerts[0].style.display === '';
+    }
+
+    // --- Certificates Expansion ---
+    const viewCertsBtn = document.getElementById('view-all-certs');
+    const hiddenCerts = document.querySelectorAll('.hidden-cert');
+
+    if (viewCertsBtn) {
+        viewCertsBtn.addEventListener('click', () => {
+            const isExpanded = viewCertsBtn.classList.contains('expanded');
             
             hiddenCerts.forEach(cert => {
-                if (isHidden) {
-                    cert.style.display = 'block';
-                    cert.classList.add('active'); // Trigger reveal animation
-                } else {
-                    cert.style.display = 'none';
-                }
+                cert.style.display = isExpanded ? 'none' : 'block';
             });
             
-            if (isHidden) {
-                showMoreBtn.innerHTML = '<i class="fas fa-minus"></i> Show Less Certificates';
+            if (isExpanded) {
+                viewCertsBtn.classList.remove('expanded');
+                viewCertsBtn.innerHTML = '<i class="fas fa-plus"></i> View All Certificates';
+                document.getElementById('certificates').scrollIntoView({ behavior: 'smooth' });
             } else {
-                showMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Show More Certificates';
+                viewCertsBtn.classList.add('expanded');
+                viewCertsBtn.innerHTML = '<i class="fas fa-minus"></i> Show Less';
             }
         });
     }

@@ -128,10 +128,17 @@ nav {
     height: 80px;
 }
 
+@font-face {
+    font-family: 'Game Of Squids';
+    src: url('fonts/Game Of Squids.ttf') format('truetype');
+}
+
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--white);
+    font-family: 'Game Of Squids', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    text-transform: uppercase;
 }
 
 .nav-links {
@@ -276,27 +283,15 @@ nav {
 /* --- Skills --- */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-}
-
-@media (max-width: 900px) {
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 .skill-category {
     background: var(--bg-dark);
-    padding: 2.5rem;
-    border-radius: 12px;
+    padding: 2rem;
+    border-radius: 8px;
     border: 1px solid var(--glass-border);
-    transition: var(--transition);
-}
-
-.skill-category:hover {
-    border-color: rgba(0, 255, 65, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .skill-category h3 {
@@ -307,26 +302,59 @@ nav {
     gap: 10px;
 }
 
-.skill-badges {
+.marquee-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 1rem 0;
+    /* Mask for fade edges */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.marquee-track {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+    gap: 1.5rem;
+    width: max-content;
+    animation: marquee-scroll 30s linear infinite;
 }
 
-.badge {
-    padding: 0.4rem 1rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-family: 'Fira Code', monospace;
+.marquee-container:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.skill-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
     transition: var(--transition);
+    border-left: 2px solid var(--primary-color);
+    white-space: nowrap;
 }
 
-.badge:hover {
-    background: var(--primary-color);
-    color: var(--bg-dark);
+.skill-item span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-main);
+    letter-spacing: 0.5px;
+}
+
+.skill-item:hover {
+    background: rgba(0, 255, 65, 0.08);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+    transform: scale(1.05);
+}
+
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* Specific speed adjustments based on category if needed */
+.skill-category:nth-child(even) .marquee-track {
+    animation-duration: 25s;
 }
 
 /* --- Projects (Light Theme) --- */
@@ -471,24 +499,19 @@ nav {
     margin: 0;
 }
 
-.cert-hidden {
-    display: none !important;
+.hidden-cert {
+    display: none;
 }
 
-.certs-toggle {
-    margin-top: 3rem;
+.view-more-container {
     text-align: center;
+    margin-top: 3rem;
 }
 
-#show-more-certs {
-    margin-left: 0;
-    border: 1px solid var(--glass-border);
-    color: var(--primary-color);
-}
-
-#show-more-certs:hover {
-    border-color: var(--primary-color);
-    background: rgba(0, 255, 65, 0.05);
+#view-all-certs {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 /* --- Contact Section --- */
@@ -625,12 +648,6 @@ footer {
     transition: var(--transition);
 }
 
-@media (max-width: 768px) {
-    .project-img {
-        height: 200px;
-    }
-}
-
 .project-card:hover .project-img img {
     transform: scale(1.05);
 }
@@ -650,7 +667,6 @@ footer {
     display: flex;
     gap: 1rem;
     margin-top: 1.5rem;
-    flex-wrap: wrap;
 }
 
 .github-btn {
@@ -739,6 +755,14 @@ footer {
     border: 1px solid var(--glass-border);
     padding: 2rem;
     border-radius: 12px;
+}
+
+.detail-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border: 1px solid var(--glass-border);
 }
 
 .detail-section h2 {
@@ -879,15 +903,30 @@ footer {
 }
 
 /* Responsive for Project Details */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .project-details-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
     .project-sidebar {
         position: static;
     }
 
+    .evidence-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .project-hero {
+        padding: 100px 0 40px;
+    }
+    
+    .detail-section {
+        padding: 1.5rem;
+    }
+    
     .evidence-grid {
         grid-template-columns: 1fr;
     }
